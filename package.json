@@ -1,0 +1,24 @@
+{
+  "name": "bot-iesb",
+  "version": "1.0.0",
+  "description": "Um web scrapper para pegar os boletos da faculdade no aluno online",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosdnba/web-scrapper-iesb.git"
+  },
+  "author": "Carlos Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosdnba/web-scrapper-iesb/issues"
+  },
+  "homepage": "https://github.com/carlosdnba/web-scrapper-iesb#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.3.1"
+  }
+}
