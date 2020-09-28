@@ -3,9 +3,14 @@ require('dotenv').config();
 
 const login = process.env.LOGIN;
 const senha = process.env.SENHA;
+const user = process.env.USER;
 
 (async function getBoleto() {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({
+        // headless: false,
+        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        // executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+    });
     // const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto('http://online.iesb.br/aonline/logon.asp');
@@ -23,6 +28,11 @@ const senha = process.env.SENHA;
     await page.waitForNavigation();
     page.click('a#M3L1');
 
-    await page.screenshot({ path: 'print.png' });
+    await page.waitForNavigation();
+    page.click('tr.font01n > td > a');
 
+    await page.waitFor(3000);
+    const pages = await browser.pages();
+    await pages[2].pdf({path: `C:\\Users\\${user}\\Desktop\\boletao.pdf`});
+    await browser.close();
 })();
