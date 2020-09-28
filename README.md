@@ -1,6 +1,7 @@
 Web Scrapper Iesb
 
-Um bot para pegar os boletos da faculdade
+Um bot para pegar os boletos da faculdade.
+
 Para rodar na sua máquina:
 - Clone o repositório
 - Rode o comando ```npm install```
