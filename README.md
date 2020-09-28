@@ -14,3 +14,4 @@ USER=seu_user_windows
 
 
 ###### Obs. caso não esteja usando o windows, altere o path onde o chrome está instalado e o path de destino do boleto (e também não será necessária a variável USER no .env)
+###### Obs. caso também queira utilizar o chromium, apenas apague as linhas 11 e 12 no index.js
