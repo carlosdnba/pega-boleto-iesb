@@ -8,8 +8,8 @@ const user = process.env.USER;
 (async function getBoleto() {
     const browser = await puppeteer.launch({
         // headless: false,
-        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-        // executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+        executablePath: '/usr/bin/google-chrome',
+        // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     });
     // const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -33,6 +33,6 @@ const user = process.env.USER;
 
     await page.waitFor(3000);
     const pages = await browser.pages();
-    await pages[2].pdf({path: `C:\\Users\\${user}\\Desktop\\boletao.pdf`});
+    await pages[2].pdf({ path: `/home/${user}/Downloads/boletao.pdf`, format: 'A4', printBackground: true });
     await browser.close();
 })();
