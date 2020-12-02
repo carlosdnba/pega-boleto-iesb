@@ -17,7 +17,7 @@ const browserPath = {
 
 (async () => {
     const browser = await puppeteer.launch({
-        executablePath: browserPath.windows,
+        executablePath: browserPath.ubuntu,
     });
 
     const page = await browser.newPage();
@@ -39,8 +39,10 @@ const browserPath = {
     await page.waitForNavigation();
     page.click('tr.font01n > td > a');
 
-    await page.waitFor(3000);
+    await page.waitForTimeout(1200);
     const pages = await browser.pages();
-    await pages[2].pdf({ path: filePath.windows, format: 'A4', printBackground: true });
+    await pages[2].pdf({ path: filePath.ubuntu, format: 'A4', printBackground: true });
     await browser.close();
+
+    console.log('Downloaded.');
 })();
