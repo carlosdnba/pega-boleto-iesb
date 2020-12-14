@@ -12,7 +12,7 @@ const filePath = {
 
 const browserPath = {
     windows: `C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe`,
-    ubuntu: `/usr/bin/google-chrome`
+    ubuntu: `/usr/bin/google-chrome`,
 };
 
 (async () => {
@@ -41,7 +41,11 @@ const browserPath = {
 
     await page.waitForTimeout(1200);
     const pages = await browser.pages();
-    await pages[2].pdf({ path: filePath.ubuntu, format: 'A4', printBackground: true });
+    await pages[2].pdf({
+        path: filePath.ubuntu,
+        format: 'A4',
+        printBackground: true,
+    });
     await browser.close();
 
     console.log('Downloaded.');
