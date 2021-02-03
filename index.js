@@ -21,7 +21,7 @@ const browserPath = {
     });
 
     const page = await browser.newPage();
-    await page.goto('http://online.iesb.br/aonline/logon.asp');
+    await page.goto('http://aonline.iesb.br/aonline/logon.asp?dual=s');
     await page.type('form > input', login);
     await page.type('form > p > input', senha);
 
