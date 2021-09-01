@@ -7,17 +7,19 @@ const user = process.env.USER;
 
 const filePath = {
   windows: `C:\\Users\\${user}\\Desktop\\boletao.pdf`,
+  wsl: `/mnt/c/Users/${user}/Downloads/boletao.pdf`,
   ubuntu: `/home/${user}/Downloads/boletao.pdf`,
 };
 
 const browserPath = {
-  windows: `C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe`,
-  ubuntu: `/usr/bin/google-chrome`,
+  windows: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  wsl: '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe',
+  ubuntu: '/usr/bin/google-chrome',
 };
 
 (async () => {
   const browser = await puppeteer.launch({
-    executablePath: browserPath.ubuntu,
+    executablePath: browserPath.wsl,
   });
 
   const page = await browser.newPage();
@@ -41,7 +43,7 @@ const browserPath = {
 
   const pages = await browser.pages();
   await pages[2].pdf({
-    path: filePath.ubuntu,
+    path: filePath.windows,
     format: 'A4',
     printBackground: true,
   });
